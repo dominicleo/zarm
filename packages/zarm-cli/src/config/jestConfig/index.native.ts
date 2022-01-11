@@ -13,9 +13,28 @@ module.exports = {
   // preset: 'react-native',
   rootDir: process.cwd(),
   roots: ['<rootDir>/components'],
+  testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.jsx?$': require.resolve('./preprocessor.native'),
-    '^.+\\.tsx?$': require.resolve('ts-jest'),
+    '^.+\\.(j|t)sx?$': [
+      '@swc/jest',
+      {
+        sourceMaps: true,
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+          },
+
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+    // '^.+\\.jsx?$': require.resolve('./preprocessor.native'),
+    // '^.+\\.tsx?$': require.resolve('ts-jest'),
   },
   // setupFilesAfterEnv: [
   //   getProjectPath('scripts/jest/setup.js'),

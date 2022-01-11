@@ -424,7 +424,7 @@ exports[`StackPicker renders correctly 1`] = `
                       <div
                         className="za-stack-picker__wrapper"
                       >
-                        <Component
+                        <_default
                           cancelText="取消"
                           handleCancel={[Function]}
                           handleOk={[Function]}
@@ -459,7 +459,7 @@ exports[`StackPicker renders correctly 1`] = `
                               确定
                             </div>
                           </div>
-                        </Component>
+                        </_default>
                         <div
                           className="za-stack-picker__crumbs"
                         >

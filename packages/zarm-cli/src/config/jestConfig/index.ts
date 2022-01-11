@@ -15,9 +15,28 @@ module.exports = {
   //   getProjectPath('scripts/jest/setup.js'),
   // ],
   testRegex: '/__tests__/[^.]+\\.test(\\.(js|jsx|ts|tsx))$',
+  testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.jsx?$': require.resolve('./preprocessor'),
-    '^.+\\.tsx?$': require.resolve('ts-jest'),
+    '^.+\\.(j|t)sx?$': [
+      '@swc/jest',
+      {
+        sourceMaps: true,
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+          },
+
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+    // '^.+\\.jsx?$': require.resolve('./preprocessor'),
+    // '^.+\\.tsx?$': require.resolve('ts-jest'),
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\](?!zarm).+\\.(js|jsx|ts|tsx)$'],
   collectCoverageFrom: [

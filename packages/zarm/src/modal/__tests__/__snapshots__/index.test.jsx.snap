@@ -80,7 +80,7 @@ exports[`Modal renders correctly 1`] = `
                         标题
                       </div>
                       <i
-                        class="za-icon za-modal__header__close za-icon--default za-icon--sm"
+                        class="za-icon za-icon--default za-icon--sm za-modal__header__close"
                         theme="default"
                       >
                         <svg
@@ -174,13 +174,13 @@ exports[`Modal renders correctly 1`] = `
                       className="za-modal__header__close"
                       component={[Function]}
                       onClick={[MockFunction]}
-                      prefixCls="za-icon"
+                      prefixCls="za"
                       size="sm"
                       theme="default"
                       viewBox="0 0 32 32"
                     >
                       <i
-                        className="za-icon za-modal__header__close za-icon--default za-icon--sm"
+                        className="za-icon za-icon--default za-icon--sm za-modal__header__close"
                         onClick={[MockFunction]}
                         size="sm"
                         theme="default"

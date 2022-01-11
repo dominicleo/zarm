@@ -14,7 +14,7 @@ describe('index', () => {
             "visible": false,
           },
           "render": [Function],
-          "useActionSheet": [Function],
+          "show": [Function],
         },
         "ActivityIndicator": Object {
           "$$typeof": Symbol(react.forward_ref),
@@ -150,11 +150,12 @@ describe('index', () => {
           },
           "render": [Function],
         },
+        "Grid": [Function],
         "Icon": Object {
           "$$typeof": Symbol(react.forward_ref),
           "createFromIconfont": [Function],
           "defaultProps": Object {
-            "prefixCls": "za-icon",
+            "prefixCls": "za",
             "size": "md",
             "theme": "default",
             "viewBox": "0 0 32 32",

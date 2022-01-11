@@ -1,7 +1,9 @@
 const pkg = require('./package.json');
 
 module.exports = {
-  preset: 'ts-jest',
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest'],
+  },
   displayName: {
     name: pkg.name,
     color: 'blue',
