@@ -16,3 +16,9 @@ export interface HTMLProps<T extends object = {}> {
   className?: string;
   style?: React.CSSProperties & Partial<T>;
 }
+
+export type NativeAttrs<
+  T extends React.HTMLAttributes<unknown>,
+  P extends object,
+  O = Omit<T, keyof P>
+> = P & O;

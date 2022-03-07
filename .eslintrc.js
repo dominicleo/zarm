@@ -11,6 +11,7 @@ module.exports = {
   overrides: [
     {
       rules: {
+        'import/prefer-default-export': 0,
         'react-hooks/exhaustive-deps': 0,
         'react/sort-comp': 0,
         'react/destructuring-assignment': 0,

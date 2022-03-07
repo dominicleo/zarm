@@ -7,9 +7,8 @@ import { useState } from 'react';
 import { List, Button, Mask } from 'zarm';
 
 const Demo = () => {
-  const [visible, setVisible] = useState(false);
-
-  const toggle = () => setVisible(!visible);
+  const [visible, setVisible] = useState({});
+  const toggle = (type) => setVisible({ [type]: !visible[type] });
 
   return (
     <>
@@ -17,13 +16,35 @@ const Demo = () => {
         <List.Item
           title="默认"
           after={
-            <Button size="xs" onClick={toggle}>
+            <Button size="xs" onClick={() => toggle('default')}>
+              开启
+            </Button>
+          }
+        />
+        <List.Item
+          title="背景色"
+          after={
+            <Button size="xs" onClick={() => toggle('background')}>
+              开启
+            </Button>
+          }
+        />
+        <List.Item
+          title="模糊背景"
+          after={
+            <Button size="xs" onClick={() => toggle('blur')}>
               开启
             </Button>
           }
         />
       </List>
-      <Mask visible={visible} onClick={toggle} />
+      <Mask visible={visible.default} onClick={() => toggle('default')} />
+      <Mask
+        style={{ '--background-color': 'rgba(255, 255, 255, 0.7)' }}
+        visible={visible.background}
+        onClick={() => toggle('background')}
+      />
+      <Mask visible={visible.blur} onClick={() => toggle('blur')} blur />
     </>
   );
 };

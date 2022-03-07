@@ -245,6 +245,13 @@ module.exports = {
         source: 'zarm/pinch-zoom/demo.md',
         style: false,
       },
+      {
+        key: 'mask',
+        name: '遮罩层',
+        module: () => import('zarm/mask/demo.md'),
+        source: 'zarm/mask/demo.md',
+        style: false,
+      },
     ],
     view: [
       {

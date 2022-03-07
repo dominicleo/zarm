@@ -1,13 +1,17 @@
 @include b(mask) {
+  @include define(zindex, 1000);
+  @include define(background-color, rgba(0, 0, 0, 0.4));
+
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, var(--opacity-mask));
-  z-index: var(--zindex-mask);
+  background-color: var(--background-color);
+  z-index: var(--zindex);
 
-  @include m(transparent) {
-    background-color: transparent;
+  @include m(blur) {
+    --background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: saturate(180%) blur(20px);
   }
 }
