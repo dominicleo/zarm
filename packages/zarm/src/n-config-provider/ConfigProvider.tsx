@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Context } from 'react';
-import type { ConfigProviderProps } from './interface';
+import { createBEM } from '@zarm-design/bem';
+import type { ConfigContextProps, ConfigProviderProps } from './interface';
 import defaultLocaleData from './locale/zh_CN';
 import setCssVars from './setCssVars';
 import setPrimaryColor from './setPrimaryColor';
@@ -14,7 +15,13 @@ export const defaultConfig: ConfigProviderProps = {
   cssVars: {},
 };
 
-export const ConfigContext: Context<ConfigProviderProps> = React.createContext(defaultConfig);
+export const ConfigContext: Context<ConfigProviderProps & ConfigContextProps> = React.createContext(
+  {
+    ...defaultConfig,
+    createNamespace: (namespace) =>
+      createBEM(namespace, { prefixCls: runtimeConfigContext.prefixCls }),
+  },
+);
 
 let runtimeConfigContext: ConfigProviderProps;
 

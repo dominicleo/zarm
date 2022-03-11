@@ -17,7 +17,7 @@ type ModifierType = (string | undefined | { [x: string]: boolean | undefined })[
 const BEMClassName = (name: string, config: BEMConfig) => {
   const { elementSeparator, modifierSeparator } = config;
 
-  return (element: string | ModifierType, modifiers?: ModifierType) => {
+  return (element?: string | ModifierType, modifiers?: ModifierType) => {
     if (element && typeof element !== 'string') {
       modifiers = element;
       element = '';
