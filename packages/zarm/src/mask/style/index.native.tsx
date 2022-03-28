@@ -9,11 +9,10 @@ export default {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
     zIndex: variables.zindex_mask,
-  },
-  transparentWrapper: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-  },
-  normalWrapper: {
     backgroundColor: `rgba(0, 0, 0, ${variables.opacity_mask})`,
+  },
+  blurWrapper: {
+    backgroundColor: `rgba(0, 0, 0, 0.1)`,
+    backdropFilter: `saturate(180%) blur(${variables.mask_blur})`,
   },
 };

@@ -1,6 +1,7 @@
 @include b(mask) {
   @include define(zindex, 1000);
   @include define(background-color, rgba(0, 0, 0, 0.4));
+  @include define(filter, 20px);
 
   position: fixed;
   left: 0;
@@ -12,6 +13,6 @@
 
   @include m(blur) {
     --background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(var(--filter));
   }
 }

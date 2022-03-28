@@ -231,10 +231,6 @@ describe('index', () => {
         },
         "Mask": Object {
           "$$typeof": Symbol(react.forward_ref),
-          "defaultProps": Object {
-            "type": "normal",
-            "visible": false,
-          },
           "render": [Function],
         },
         "Message": Object {

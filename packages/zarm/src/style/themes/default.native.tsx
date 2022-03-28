@@ -253,6 +253,9 @@ const components = {
   tooltip_arrow_size: 5,
   tooltip_padding_v: base.padding_v_sm,
   tooltip_padding_h: base.padding_h_sm,
+
+  // Mask
+  mask_blur: 20,
 };
 
 export default { ...base, ...components };

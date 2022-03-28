@@ -731,7 +731,7 @@ exports[`Select Select disabled 1`] = `
                       class="za-popup-container"
                     >
                       <div
-                        class="za-mask za-fade-enter za-mask--normal"
+                        class="za-mask za-fade-enter"
                         style="animation-duration: 200ms;"
                       />
                       <div
@@ -808,7 +808,7 @@ exports[`Select Select disabled 1`] = `
                     </div>
                   }
                 >
-                  <Mask
+                  <ForwardRef
                     className="za-fade-enter"
                     style={
                       Object {
@@ -816,19 +816,42 @@ exports[`Select Select disabled 1`] = `
                         "animationDuration": "200ms",
                       }
                     }
-                    type="normal"
                     visible={true}
                   >
-                    <div
-                      className="za-mask za-fade-enter za-mask--normal"
-                      style={
-                        Object {
-                          "WebkitAnimationDuration": "200ms",
-                          "animationDuration": "200ms",
-                        }
-                      }
-                    />
-                  </Mask>
+                    <CSSTransition
+                      classNames="za-fade"
+                      in={true}
+                      mountOnEnter={true}
+                      timeout={300}
+                      unmountOnExit={true}
+                    >
+                      <Transition
+                        appear={false}
+                        enter={true}
+                        exit={true}
+                        in={true}
+                        mountOnEnter={true}
+                        onEnter={[Function]}
+                        onEntered={[Function]}
+                        onEntering={[Function]}
+                        onExit={[Function]}
+                        onExited={[Function]}
+                        onExiting={[Function]}
+                        timeout={300}
+                        unmountOnExit={true}
+                      >
+                        <div
+                          className="za-mask za-fade-enter"
+                          style={
+                            Object {
+                              "WebkitAnimationDuration": "200ms",
+                              "animationDuration": "200ms",
+                            }
+                          }
+                        />
+                      </Transition>
+                    </CSSTransition>
+                  </ForwardRef>
                   <div
                     className="za-popup__wrapper"
                     data-width={0}

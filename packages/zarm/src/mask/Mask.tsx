@@ -8,6 +8,7 @@ import type { BaseMaskProps } from './interface';
 export interface MaskCssVars {
   '--background-color'?: React.CSSProperties['backgroundColor'];
   '--zindex'?: React.CSSProperties['zIndex'];
+  '--filter'?: string;
 }
 
 export type MaskProps = NativeAttrs<
