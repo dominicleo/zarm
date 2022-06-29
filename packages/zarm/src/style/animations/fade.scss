@@ -1,9 +1,9 @@
 .#{$prefixCls}-fade {
   &-enter-active {
-    animation: .3s #{$prefixCls}-fade-in ease-in;
+    animation: .3s #{$prefixCls}-fade-in both ease-in;
   }
   &-exit-active {
-    animation: .3s #{$prefixCls}-fade-out ease-out;
+    animation: .3s #{$prefixCls}-fade-out both ease-out;
   }
 }
 

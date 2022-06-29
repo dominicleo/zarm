@@ -1,5 +1,5 @@
 export interface BaseMaskProps {
   visible?: boolean;
-  blur?: boolean;
+  type?: 'normal' | 'transparent' | 'blur';
   duration?: number;
 }

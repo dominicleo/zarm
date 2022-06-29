@@ -11,6 +11,10 @@
   background-color: var(--background-color);
   z-index: var(--zindex);
 
+  @include m(transparent) {
+    background-color: transparent;
+  }
+
   @include m(blur) {
     --background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: saturate(180%) blur(var(--filter));

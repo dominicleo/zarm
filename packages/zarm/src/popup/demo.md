@@ -110,6 +110,7 @@ const Demo = () => {
       <Popup
         visible={visible.popBottom}
         direction="bottom"
+        maskBlur
         onMaskClick={() => toggle('popBottom')}
         afterOpen={() => console.log('打开')}
         afterClose={() => console.log('关闭')}

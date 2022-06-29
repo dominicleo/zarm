@@ -44,7 +44,7 @@ const Demo = () => {
         visible={visible.background}
         onClick={() => toggle('background')}
       />
-      <Mask visible={visible.blur} onClick={() => toggle('blur')} blur />
+      <Mask visible={visible.blur} type='blur' onClick={() => toggle('blur')} />
     </>
   );
 };

@@ -17,7 +17,7 @@ export type MaskProps = NativeAttrs<
 >;
 
 const Mask = React.forwardRef<HTMLDivElement, MaskProps>((props, ref) => {
-  const { className, visible = false, blur, duration = 300, children, ...rest } = props;
+  const { className, visible = false, type, duration, children, ...rest } = props;
   const { prefixCls } = React.useContext(ConfigContext);
   const bem = createBEM('mask', { prefixCls });
 
@@ -26,14 +26,19 @@ const Mask = React.forwardRef<HTMLDivElement, MaskProps>((props, ref) => {
       mountOnEnter
       unmountOnExit
       in={visible}
-      timeout={duration}
+      timeout={duration!}
       classNames={`${prefixCls}-fade`}
     >
-      <div {...rest} ref={ref} className={bem([{ blur }, className])}>
+      <div {...rest} ref={ref} className={bem([{ [`${type}`]: true }, className])}>
         {children}
       </div>
     </CSSTransition>
   );
 });
+
+Mask.defaultProps = {
+  type: 'normal',
+  duration: 300,
+}
 
 export default Mask;

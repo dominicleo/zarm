@@ -1,4 +1,5 @@
 import type { ContainerType } from '../utils/dom';
+import type { MaskProps } from '../mask'
 
 export interface BasePopupProps {
   visible?: boolean;
@@ -20,7 +21,7 @@ export interface BasePopupProps {
   animationDuration?: number;
   width?: string | number;
   mask?: boolean;
-  maskType?: 'transparent' | 'normal';
+  maskType?: MaskProps['type'];
   destroy?: boolean;
   afterOpen?: () => void;
   afterClose?: () => void;
