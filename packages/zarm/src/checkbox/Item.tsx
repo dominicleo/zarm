@@ -1,6 +1,6 @@
 import { createBEM } from '@zarm-design/bem';
 import { Minus as MinusIcon, Success as SuccessIcon } from '@zarm-design/icons';
-import React, { forwardRef, useContext, useEffect, useImperativeHandle } from 'react';
+import React, { forwardRef, useContext, useImperativeHandle } from 'react';
 import { ConfigContext } from '../config-provider';
 import { useControllableValue } from '../utils/hooks';
 import type { HTMLProps } from '../utils/utilityTypes';
@@ -47,13 +47,25 @@ const getChecked = (props: CheckboxProps, defaultChecked?: boolean) => {
 };
 
 const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((props, ref) => {
-  const [checked, setChecked] = useControllableValue<boolean>(props, {
+  let [checked, setChecked] = useControllableValue<boolean>(props, {
     defaultValue: props.defaultChecked,
     defaultValuePropName: 'defaultChecked',
     valuePropName: 'checked',
   });
-
   const groupContext = useContext(CheckboxGroupContext);
+  const { value } = props;
+
+  if (groupContext && props.value !== undefined) {
+    checked = groupContext.value.includes(value);
+    setChecked = (changedChecked: boolean) => {
+      if (changedChecked) {
+        groupContext.uncheck(value);
+      } else {
+        groupContext.check(value);
+      }
+      props.onChange?.(!changedChecked);
+    };
+  }
 
   const { prefixCls } = useContext(ConfigContext);
   const bem = createBEM('checkbox', { prefixCls });
@@ -122,19 +134,6 @@ const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((props, ref) => {
       setChecked(!checked);
     },
   }));
-
-  useEffect(() => {
-    if (groupContext && props.value !== undefined) {
-      const currentChecked = groupContext.value.includes(props.value);
-      if (currentChecked) {
-        groupContext.check(props.value);
-      } else {
-        groupContext.uncheck(props.value);
-      }
-      setChecked(currentChecked);
-      props.onChange?.(currentChecked);
-    }
-  }, [props.value, props.onChange]);
 
   return checkboxRender;
 });
