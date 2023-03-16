@@ -84,6 +84,7 @@ describe('ImagePreview', () => {
     const mOnClose = jest.fn();
     render(<ImagePreview visible images={images} onClose={mOnClose} />);
     const content = document.body.querySelector('.za-image-preview__content');
+    console.log(1);
     fireEvent.mouseDown(content!, { pointerId: 10, clientX: 20, clientY: 0, buttons: 1 });
     fireEvent.mouseMove(content!, { pointerId: 10, clientX: 20, clientY: 0, buttons: 1 });
     fireEvent.mouseUp(content!, { pointerId: 10, clientX: 20 });
